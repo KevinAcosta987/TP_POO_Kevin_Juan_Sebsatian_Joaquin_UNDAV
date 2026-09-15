@@ -1,0 +1,92 @@
+# ===================================================================
+# Archivos de compilación y empaquetado (Java / Maven)
+# ===================================================================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Logs y volcados de depuración de la JVM
+*.log
+hs_err_pid*
+replay_pid*
+
+# Archivos temporales de Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.flattened-pom.xml
+
+# ===================================================================
+# Eclipse IDE
+# (En proyectos Maven, Eclipse regenera estos archivos al importar el pom.xml)
+# ===================================================================
+.classpath
+.project
+.settings/
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.factorypath
+
+# ===================================================================
+# VS Code / Antigravity IDE
+# ===================================================================
+.vscode/
+*.code-workspace
+.history/
+.factorypath
+.apt_generated/
+.gemini/
+
+# ===================================================================
+# Vim / Neovim / LazyVim
+# ===================================================================
+# Archivos swap, backup y undo de Vim
+*.swp
+*.swo
+*.swn
+*~
+*.un~
+.netrwhist
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-z]
+
+
+# Sesiones de Vim / LazyVim
+Session.vim
+Sessionx.vim
+
+# Directorios de caché y workspace de jdtls / lsp para Neovim
+.jdtls/
+.nvim/
+
+# ===================================================================
+# Sistema Operativo (Linux, macOS, Windows)
+# ===================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
