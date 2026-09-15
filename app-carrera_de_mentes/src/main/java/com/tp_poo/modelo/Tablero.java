@@ -47,23 +47,23 @@ public class Tablero {
       bancoPreguntas.put(cat, new ArrayList<>());
     }
 
-    agregarPregunta(new Pregunta(Categoria.AZUL, "¿Cuál es el símbolo químico del agua?", "H2O"));
-    agregarPregunta(new Pregunta(Categoria.AZUL, "¿Cuál es el planeta más cercano al Sol?", "Mercurio"));
-    agregarPregunta(new Pregunta(Categoria.ROJO, "¿En qué año llegó Colón a América?", "1492"));
+    agregarPregunta(new Pregunta(Categoria.CELESTE, "¿Cuál es el símbolo químico del agua?", "H2O"));
+    agregarPregunta(new Pregunta(Categoria.CELESTE, "¿Cuál es el planeta más cercano al Sol?", "Mercurio"));
+    agregarPregunta(new Pregunta(Categoria.MARRON, "¿En qué año llegó Colón a América?", "1492"));
     agregarPregunta(
-        new Pregunta(Categoria.ROJO, "¿Quién fue el primer presidente argentino?", "Bernardino Rivadavia"));
+        new Pregunta(Categoria.MARRON, "¿Quién fue el primer presidente argentino?", "Bernardino Rivadavia"));
     agregarPregunta(new Pregunta(Categoria.AMARILLO, "¿Cuál es la capital de Francia?", "París"));
     agregarPregunta(new Pregunta(Categoria.AMARILLO, "¿Qué océano baña las costas de Argentina?", "Atlántico"));
     agregarPregunta(new Pregunta(Categoria.VERDE, "¿Quién pintó la Mona Lisa?", "Leonardo da Vinci"));
     agregarPregunta(
         new Pregunta(Categoria.VERDE, "¿Quién escribió 'Don Quijote de la Mancha'?", "Miguel de Cervantes"));
-    agregarPregunta(new Pregunta(Categoria.NARANJA, "¿Qué superhéroe es conocido como el Caballero de la Noche?",
+    agregarPregunta(new Pregunta(Categoria.ROSA, "¿Qué superhéroe es conocido como el Caballero de la Noche?",
         "Batman"));
     agregarPregunta(
-        new Pregunta(Categoria.NARANJA, "¿Quién compuso la banda sonora de Star Wars?", "John Williams"));
+        new Pregunta(Categoria.ROSA, "¿Quién compuso la banda sonora de Star Wars?", "John Williams"));
     agregarPregunta(
-        new Pregunta(Categoria.BLANCO, "¿Cuántos jugadores integran un equipo de fútbol en cancha?", "11"));
-    agregarPregunta(new Pregunta(Categoria.BLANCO, "¿Cada cuántos años se celebran los Juegos Olímpicos?", "4"));
+        new Pregunta(Categoria.VERDE, "¿Cuántos jugadores integran un equipo de fútbol en cancha?", "11"));
+    agregarPregunta(new Pregunta(Categoria.VERDE, "¿Cada cuántos años se celebran los Juegos Olímpicos?", "4"));
   }
 
   public void agregarPregunta(Pregunta pregunta) {

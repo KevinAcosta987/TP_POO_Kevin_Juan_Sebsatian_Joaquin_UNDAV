@@ -6,12 +6,12 @@ package com.tp_poo.modelo;
  * Usamos enum para que solo puedan ser estos valores y no cualquier string.
  */
 public enum Categoria {
-  AZUL("Ciencias"),
-  ROJO("Historia"),
+  CELESTE("Ciencias"),
+  MARRON("Historia"),
   AMARILLO("Geografía"),
   VERDE("Artes"),
-  NARANJA("Espectáculos"),
-  BLANCO("Entretenimiento");
+  ROSA("Espectáculos y Entretenimiento"),
+  GRIS("Elige el jugador"); // TODO: cambiar dentro de tablero la forma en la que anda la categoría gris
 
   private final String descripcion;
 
