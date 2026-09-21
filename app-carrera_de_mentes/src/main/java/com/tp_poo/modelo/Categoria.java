@@ -11,7 +11,7 @@ public enum Categoria {
   AMARILLO("Geografía"),
   VERDE("Artes"),
   ROSA("Espectáculos y Entretenimiento"),
-  GRIS("Elige el jugador"); // TODO: cambiar dentro de tablero la forma en la que anda la categoría gris
+  GRIS("Elige el jugador");
 
   private final String descripcion;
 
@@ -21,6 +21,19 @@ public enum Categoria {
 
   public String getDescripcion() {
     return descripcion;
+  }
+
+  // Indica si esta categoría actúa como comodín ("Elige el jugador").
+  public boolean esGris() {
+    return this == GRIS;
+  }
+
+  // Retorna únicamente las categorías temáticas que tienen preguntas y otorgan
+  // estrellas.
+  public static Categoria[] getCategoriasPreguntables() {
+    return java.util.Arrays.stream(values())
+        .filter(c -> !c.esGris())
+        .toArray(Categoria[]::new);
   }
 
   /*

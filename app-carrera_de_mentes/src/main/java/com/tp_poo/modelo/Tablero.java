@@ -43,7 +43,7 @@ public class Tablero {
   // Carga un conjunto inicial de preguntas por categoría para pruebas y juego.
 
   private void inicializarBancoPreguntas() {
-    for (Categoria cat : Categoria.values()) {
+    for (Categoria cat : Categoria.getCategoriasPreguntables()) {
       bancoPreguntas.put(cat, new ArrayList<>());
     }
 
@@ -67,7 +67,13 @@ public class Tablero {
   }
 
   public void agregarPregunta(Pregunta pregunta) {
-    bancoPreguntas.get(pregunta.getCategoria()).add(pregunta);
+    if (pregunta == null || pregunta.getCategoria() == null) {
+      return;
+    }
+    List<Pregunta> lista = bancoPreguntas.get(pregunta.getCategoria());
+    if (lista != null) {
+      lista.add(pregunta);
+    }
   }
 
   /*
@@ -91,6 +97,11 @@ public class Tablero {
   // Intermediario para conseguir una pregunta asociada a la categoría indicada.
 
   public Pregunta obtenerPregunta(Categoria categoria) {
+    if (categoria == null || categoria.esGris()) {
+      // Si la categoría es comodín o nula, se delega en una categoría preguntable al
+      // azar
+      return obtenerPregunta();
+    }
     List<Pregunta> preguntas = bancoPreguntas.get(categoria);
     if (preguntas == null || preguntas.isEmpty()) {
       return new Pregunta(categoria, "Pregunta genérica de " + categoria.name(), "Respuesta");
@@ -98,10 +109,10 @@ public class Tablero {
     return preguntas.get(random.nextInt(preguntas.size()));
   }
 
-  // Obtiene una pregunta aleatoria de cualquier categoría.
+  // Obtiene una pregunta aleatoria de cualquier categoría preguntable.
 
   public Pregunta obtenerPregunta() {
-    Categoria[] cats = Categoria.values();
+    Categoria[] cats = Categoria.getCategoriasPreguntables();
     Categoria catAleatoria = cats[random.nextInt(cats.length)];
     return obtenerPregunta(catAleatoria);
   }

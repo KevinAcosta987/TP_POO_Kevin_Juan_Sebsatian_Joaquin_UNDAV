@@ -60,13 +60,30 @@ public class Partida {
   }
 
   /*
-   * Procesa una respuesta correcta del jugador actual.
-   * Si el casillero en el que se encuentra es especial, le asigna la estrella
-   * correspondiente.
-   * Luego verifica si el jugador reunió las estrellas necesarias para ganar.
+   * Procesa una respuesta correcta del jugador actual tomando por defecto la
+   * categoría
+   * de su casillero actual.
    */
   public void respuestaCorrecta() {
-    if (partidaFinalizada) {
+    Jugador actual = getJugadorActual();
+    if (actual != null) {
+      Casillero casilleroActual = tablero.obtenerCasillero(actual.getPosicion());
+      if (casilleroActual != null) {
+        respuestaCorrecta(casilleroActual.getCategoria());
+      }
+    }
+  }
+
+  /*
+   * Procesa una respuesta correcta del jugador actual considerando la categoría
+   * jugada
+   * (útil cuando el casillero es comodín y el jugador eligió la temática).
+   * Si el casillero en el que se encuentra es especial, le asigna la estrella
+   * correspondiente a la categoría jugada.
+   * Luego verifica si el jugador reunió las estrellas necesarias para ganar.
+   */
+  public void respuestaCorrecta(Categoria categoriaJugada) {
+    if (partidaFinalizada || categoriaJugada == null || categoriaJugada.esGris()) {
       return;
     }
 
@@ -77,11 +94,11 @@ public class Partida {
 
     Casillero casilleroActual = tablero.obtenerCasillero(actual.getPosicion());
     if (casilleroActual != null && casilleroActual.esEspecial()) {
-      actual.sumarEstrella(casilleroActual.getCategoria());
+      actual.sumarEstrella(categoriaJugada);
 
       // En Carrera de Mente se gana al completar las estrellas de todos los colores
-      // (6)
-      if (actual.getCantidadEstrellasTotal() >= Categoria.values().length) {
+      // preguntables
+      if (actual.getCantidadEstrellasTotal() >= Categoria.getCategoriasPreguntables().length) {
         this.ganador = actual;
         finalizarPartida();
       }
