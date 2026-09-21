@@ -23,13 +23,12 @@ public enum Categoria {
     return descripcion;
   }
 
-  // Indica si esta categoría actúa como comodín ("Elige el jugador").
+  // Indica si esta categoría es gris.
   public boolean esGris() {
     return this == GRIS;
   }
 
-  // Retorna únicamente las categorías temáticas que tienen preguntas y otorgan
-  // estrellas.
+  // Retorna únicamente las categorías temáticas que tienen preguntas.
   public static Categoria[] getCategoriasPreguntables() {
     return java.util.Arrays.stream(values())
         .filter(c -> !c.esGris())

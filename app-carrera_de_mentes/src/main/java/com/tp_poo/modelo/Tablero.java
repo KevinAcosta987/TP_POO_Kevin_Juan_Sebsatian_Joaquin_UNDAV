@@ -32,14 +32,21 @@ public class Tablero {
    * y marcando casilleros especiales periódicamente (cada 6 casilleros).
    */
   private void inicializarCasilleros() {
-    Categoria[] categorias = Categoria.values();
+    // Obtenemos solo las 6 categorías que se juegan, ignorando comodines (grises)
+    Categoria[] categorias = Categoria.getCategoriasPreguntables();
+
     for (int i = 0; i < cantidadCasillero; i++) {
       Categoria cat = categorias[i % categorias.length];
-      boolean esEspecial = (i % 6 == 0); // Casillero que otorga estrella
+
+      // cambie este por que 1 no era muy claro, 2 algunas categorias no tendrian
+      // estrellas, solo si el tablero es de 36 por que:
+      // Al usar % 7 se desfasa el múltiplo y cae en distintas categorías
+      // Esto pone estrellas en i = 0, 7, 14, 21, 28, 35.
+      boolean esEspecial = (i % 7 == 0);
+
       casilleros.add(new Casillero(cat, esEspecial));
     }
   }
-
   // Carga un conjunto inicial de preguntas por categoría para pruebas y juego.
 
   private void inicializarBancoPreguntas() {

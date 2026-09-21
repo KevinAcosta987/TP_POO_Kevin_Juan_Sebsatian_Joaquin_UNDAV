@@ -9,7 +9,8 @@ public class Jugador {
   /*
    * Representación de la Matriz [Color][Cantidad]
    * Fila = índice de cada color/categoría.
-   * Columna 0 = índice del color, Columna 1 = cantidad de estrellas obtenidas.
+   * Columna 0 = índice del color, Columna 1 = cantidad de estrellas obtenidas (no
+   * puede ser mas de 1).
    */
   private int[][] estrellas;
   private Random random = new Random();
